@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">商品描述</label>
                             <div class="col-xs-5 ckeditor">
-                                <textarea name="proDesc" rows="5" class="form-control input-sm"></textarea>
+                                <textarea name="proDesc" id="ck" rows="5" class="form-control input-sm"></textarea>
                             </div>
                         </div>
                         <div class="form-group">

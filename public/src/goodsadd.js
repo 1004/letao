@@ -1,5 +1,7 @@
 
-define(['jquery', 'template', './utils', 'uploadify'], function($, template) {
+define(['jquery', 'template', 'ckeditor', './utils', 'uploadify'], function($, template, CKEDITOR) {
+
+    CKEDITOR.replace('ck');
 
     // 表单提交
     $('form').on('submit', function () {
