@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>传智云购-购物车</title>
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="res/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/cart.css"/>
+</head>
+<body>
+<div class="cz_layout">
+    <header class="cz_topBar">
+        <a href="javascript:history.back();" class="icon_back fa fa-arrow-left"></a>
+        <span class="title">购物车</span>
+        <a href="javascript:;" class="icon_refresh fa fa-refresh"></a>
+    </header>
+    <div class="cz_container mui-scroll-wrapper">
+        <ul class="mui-table-view mui-scroll" id="cart">
+        </ul>
+        <div class="cart_order">订单总额：&yen;<span id="total">1022.00</span> <a href="#">生成订单</a></div>
+    </div>
+    <footer class="cz_tabs">
+        <a class="tab_home fa fa-home" href="index.html"><span>首页</span></a>
+        <a class="tab_cate fa fa-bars" href="cate.html"><span>分类</span></a>
+        <a class="tab_cart fa fa-shopping-cart now" href="cart.html"><span>购物车</span></a>
+        <a class="tab_user fa fa-user" href="user/index.html"><span>会员中心</span></a>
+    </footer>
+</div>
+<script type="text/template" id="cartList">
+    {{each list}}
+    <li data-product="" data-account="{{$value.price * $value.num}}" class="mui-table-view-cell">
+        <div class="mui-slider-right mui-disabled">
+            <a class="mui-btn mui-btn-blue">编辑</a>
+            <a class="mui-btn mui-btn-red">删除</a>
+        </div>
+        <a href="javascript:;" class="mui-navigate-right mui-slider-handle">
+            <img class="mui-media-object mui-pull-left" src="/api{{$value.pic[0].picAddr}}">
+            <div class="mui-media-body">
+                <p class="name"></p>
+                <p class="info">
+                    <span class="price">&yen;{{$value.price}}</span>
+                    <span class="oldPrice">&yen;{{$value.oldPrice}}</span>
+                    <span class="number">x{{$value.num}}</span>
+                </p>
+                <p><span class="size">号码：{{$value.size}}</span></p>
+            </div>
+            <input type="checkbox" checked>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script src="/m/js/require.js"></script>
+<script src="/m/js/config.js"></script>
+<script>
+    require(['src/cart']);
+</script>
+</body>
+</html>
